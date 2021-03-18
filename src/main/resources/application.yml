@@ -1,11 +1,11 @@
 spring:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/sequence
-    username: root
-    password: admin
+    url: jdbc:mysql://sequence.cw7p4obryfxw.us-east-2.rds.amazonaws.com:3306/sequence
+    username: admin
+    password: R5Gaf3236w
   jpa:
     database-platform: org.hibernate.dialect.MySQL5Dialect
-    hibernate.ddl-auto: update
+    hibernate.ddl-auto: create
     generate-ddl: false
     show-sql: true

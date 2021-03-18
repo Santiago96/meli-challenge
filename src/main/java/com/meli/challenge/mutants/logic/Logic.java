@@ -32,6 +32,10 @@ public class Logic extends Thread {
         this.board = board;
     }
 
+    /**
+     * Method to be executed when a thread calls start() method, here the algorithm method will be called
+     * and will search for occurrences in the board.
+     */
     @Override
     public void run() {
         if (direction.equals(Direction.VERTICAL)) {
@@ -46,6 +50,10 @@ public class Logic extends Thread {
         algorithm.algorithm(board);
     }
 
+    /**
+     * Every call to this method will increase in one the repeatedSequence
+     * This method is consulted in the main thread checking the value if it equals or greater than 2
+     */
     public void setRepeatedSequence() {
         this.repeatedSequence += 1;
     }

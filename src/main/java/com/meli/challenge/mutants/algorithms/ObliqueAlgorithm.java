@@ -15,6 +15,13 @@ public class ObliqueAlgorithm implements Algorithm {
         this.logic = logic;
     }
 
+    /**
+     * This method will search in a oblique direction one for the right and one for the left starting in the corner of the
+     * board, once it identifies 4 times the same letter will increase the
+     * repeated sequence value in logic class that is consulted each moment in the main thread, this thread will be
+     * interrupted if the main thread identifies 2 occurrences in the board.
+     * @param board
+     */
     @Override
     public void algorithm(String[][] board) {
         log.info("Start searching in: {}", this.getClass().getName());

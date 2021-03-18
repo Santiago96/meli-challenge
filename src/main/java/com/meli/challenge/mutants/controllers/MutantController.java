@@ -6,6 +6,7 @@ import com.meli.challenge.mutants.model.Sequence;
 import com.meli.challenge.mutants.model.Stats;
 import com.meli.challenge.mutants.services.StatsService;
 import com.meli.challenge.mutants.services.SequenceService;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,13 @@ public class MutantController {
     @Autowired
     private StatsService statsService;
 
+    /**
+     * POST method requires in the requirements
+     *
+     * @param request Request model as a RequestBody
+     * @return ResponseEntity with a defined status
+     */
+    @ApiOperation(value = "Validate DNA", response = ResponseEntity.class)
     @PostMapping(value = "/mutant/", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity validateMutantDNA(@RequestBody Request request) {
         log.info("Post mutant endpoint consulted");
@@ -50,6 +58,11 @@ public class MutantController {
         return new ResponseEntity(HttpStatus.FORBIDDEN);
     }
 
+    /**
+     * GET method to obtain the stats
+     * @return ReponseEntity with Stats stereotype with the json properties needed.
+     */
+    @ApiOperation(value = "Get stats from the database", response = ResponseEntity.class)
     @GetMapping(value = "/stats", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Stats> getStats() {
         log.info("Get Stats endpoint consulted");
